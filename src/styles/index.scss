@@ -79,6 +79,7 @@ a {
         height: 28px;
         width: 30px;
         position: relative;
+        display: none;
         .bar{
             border-radius: 5px;
             height: 6px;
@@ -120,4 +121,15 @@ a {
 
 .container {
     padding-inline: 15vw;    
+}
+
+@media screen and (max-width: 768px){
+    .navbar{
+        .nav-links{
+            display: none;
+        }
+        .sidebar-btn{
+            display: block;
+        }
+    }
 }
