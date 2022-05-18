@@ -9,6 +9,10 @@
     --animation-speed: 1;
 }
 
+@function getAnimationDuration($duration: number){
+    @return calc($duration * var(--animation-speed));
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -58,7 +62,7 @@ a {
                 bottom: -3px;
                 left: 0;
                 transform: scaleX(0);
-                transition: transform calc(var(--animation-speed) * 0.2s) ease-in-out;
+                transition: getAnimationDuration(.2s) ease-in-out;
             }
             &:hover{
                 &::before{
@@ -68,6 +72,47 @@ a {
             &.active{
                 color: var(--primary-color);
                 font-weight: bold;
+            }
+        }
+    }
+    .sidebar-btn{
+        height: 28px;
+        width: 30px;
+        position: relative;
+        .bar{
+            border-radius: 5px;
+            height: 6px;
+            width: 100%;
+            background-color: var(--text-color);
+            position: absolute;
+            transition: getAnimationDuration(.5s);
+            &:nth-child(1){
+                top: 0;
+            }
+            &:nth-child(2){
+                top: 50%;
+                transform-origin: right;
+                transform: scaleX(.8) translateY(-50%);
+            }
+            &:nth-child(3){
+                top: 100%;
+                transform-origin: right;
+                transform: scaleX(1.1) translateY(-100%);
+            }
+        }
+        &.active{
+            .bar{
+                transform-origin: center;
+                top: 50%;
+                &:nth-child(1){
+                    transform: translate(0, -50%) scale(1) rotate(45deg);
+                }
+                &:nth-child(2){
+                    transform: scaleX(0) translateY(-50%);
+                }
+                &:nth-child(3){
+                    transform: translate(0, -50%) scale(1) rotate(-45deg);
+                }
             }
         }
     }
