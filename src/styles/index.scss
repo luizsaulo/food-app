@@ -52,6 +52,7 @@ a {
             letter-spacing: 2px;
             text-transform: uppercase;
             position: relative;
+            font-size: 0.9em;
             &::before{
                 content: '';
                 display: inline-block;
@@ -117,6 +118,17 @@ a {
             }
         }
     }
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: var(--background-color);
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
+                3px 0 5px var(--shadow-color);
 }
 
 .container {
