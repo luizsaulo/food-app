@@ -129,12 +129,39 @@ a {
     background-color: var(--background-color);
     box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
                 3px 0 5px var(--shadow-color);
+    animation: getAnimationDuration(.3s) slideInLeft;
+    .sidebar-link{
+        display: block;
+        padding: .5em 1em;
+        border-left: .4em solid transparent;
+        margin-bottom: 1em;
+        color: var(--text-color);
+        font-size: 1.1em;
+        transform: translateX(-100%);
+        animation: getAnimationDuration(.3s) slideInLeft forwards;
+        @for $i from 1 through 3{
+            &:nth-child(#{$i}){
+                animation-delay: #{$i * .1}s;
+            }
+        }
+        &.active{
+           border-left-color: var(--primary-color); 
+        }
+        &:hover{
+            border-left-color: var(--primary-color);
+            background-color: rgba(0,0,0,0.05);
+        }
+        svg{
+            width: 1.2em;
+            margin-right: .5em;
+        }
+    }
 }
 
 .container {
     padding-inline: 15vw;    
 }
-
+@import "partials/animations";
 @media screen and (max-width: 768px){
     .navbar{
         .nav-links{
