@@ -89,32 +89,24 @@ img {
 
 @import 'partials/hero-section';
 
-.section.improve-skills{
-    .col.img{
-        img{
-            width: 100%;
+@import 'partials/improve-section';
+
+.section.quote {
+    display: block;
+    .quote-text{
+        font-size: 1.2em;
+        line-height: 1.3;
+        color: var(--text-color);
+        svg{
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-right: .5em;
         }
     }
-    .col.typography{
-        padding-left: 1em;
-        .skill-item{
-            border-left: .2em solid var(--primary-color);
-            margin-bottom: .5em;
-            padding: .2em 0 .1em .5em;
-            color: var(--text-light);
-            font-weight: bold;
-            transform: translateX(100%);
-            opacity: 0;
-            animation: getAnimationDuration(.3s) slideInRight forwards;
-            @for $i from 2 through 7 {
-                &:nth-child(#{$i}){
-                    animation-delay: #{$i * .1}s;
-                }
-            }
-        }
-        .btn{
-            margin-top: .75em;
-        }
+    .quote-author{
+        color: var(--text-light);
+        text-align: right;
+        margin-top: 1em;
     }
 }
 
