@@ -35,7 +35,7 @@ export default function  Navbar(){
                 <a href='#!' className='logo'>F<span>oo</span>diesHub</a>
                 <div className='nav-links'>
                     { links.map(link => (
-                        <Link className={location.pathname == link.path ? 'active' : ''} to={link.path} key={link.name}>{link.name}</Link>
+                        <Link className={location.pathname === link.path ? 'active' : ''} to={link.path} key={link.name}>{link.name}</Link>
                     ))}                    
                 </div>
                 <div onClick={() => setShowSidebar(true)} className={showSidebar ? 'sidebar-btn active' : 'sidebar-btn'}>
