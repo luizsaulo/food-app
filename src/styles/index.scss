@@ -71,6 +71,9 @@ img {
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 3vw;
+    &.d-block{
+        display: block;
+    }
     .title{
         color: var(--text-color);
         font-size: 2.5em;
@@ -101,51 +104,51 @@ img {
 
 @import 'partials/previous-searches';
 
-.recipes-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-gap: 1.5em;
+.options-container{
+    box-shadow: 0 5px 10px var(--shadow-color);
+    padding: 1em;
+    border-radius: 5px;
+    border-left: .5em solid var(--primary-color);
+    background-color: var(--background-color);
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    .option{
+        height: 3.5em;
+        width: 3.5em;
+        box-shadow: 0 3px 6px var(--shadow-color);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.light{
+            background-color: #fff;
+        }
+        &.dark{
+            background-color: rgb(29,29,29);
+        }
+        .check{
+            height: 2.5em;
+            width: 2.5em;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            svg{
+                height: 1.5em;
+                width: 1.5em;
+            }
+        }
+    }
 }
 
-.recipe-card{
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px var(--shadow-color);
-    .recipe-card-info{
-        padding: 15px;
-    }
-    .custom-image{
-        z-index: -1;
-    }
-    .auther-img{
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        border: 3px solid var(--background-light);
-        box-shadow: 0 1px 3px var(--shadow-color);
-        margin-top: -50px;
-        z-index: 2;
-    }
-    .recipe-title{
-        font-size: 1.25em;
-        font-weight: bold;
-        margin-bottom: .5em;
-        color: var(--text-color);
-        margin-top: .25em;
-    }
-    .recipe-desc{
-        color: var(--text-light);
-        font-size: .9em;
-        letter-spacing: 1px;
-    }
-    .view-btn{
-        font-size: 1em;
-        font-weight: bold;
-        color: var(--primary-color);
-        margin-top: .75em;
-        display: inline-block;
-    }
+.d-block h2{
+    font-size: 1.75em;
 }
+
+@import 'partials/recipe-section';
 
 .main{
     padding-block: 3vw;
