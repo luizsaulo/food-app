@@ -13,11 +13,42 @@ export default function Settings() {
     "rgb(0, 200, 83)",
     "rgb(156, 39, 176)",
   ]
+  const fontSizes = [
+    {
+      title: "Small",
+      value: "12px"
+    },
+    {
+      title: "Medium",
+      value: "16px"
+    },
+    {
+      title: "Large",
+      value: "20px"
+    }
+  ]
+  const animationSpeeds = [
+    {
+      title: "Slow",
+      value: 2
+    },
+    {
+      title: "Medium",
+      value: 1
+    },
+    {
+      title: "Fast",
+      value: 3
+    }
+  ]
   const [primaryColor, setPrimaryColor] = useState(0)
+  const [fontSize, setFontSize] = useState(1)
+  const [animationSpeed, setAnimationSpeed] = useState(1)
+
   return (
     <div>
       <div className="section d-block">
-        <h2>Primary color</h2>
+        <h2>Preferred theme</h2>
         <div className="options-container">
           <div className="option light">
             {theme === "light" && (
@@ -37,11 +68,11 @@ export default function Settings() {
       </div>
 
       <div className="section d-block">
-        <h2>Preferred theme</h2>
+        <h2>Primary Color</h2>
         <div className="options-container">          
           {primaryColors.map((color, index) => (
             <div className="option light" style={{backgroundColor: color}}>
-              { primaryColor == index && (
+              { primaryColor === index && (
                 <div className="check">
                   <FontAwesomeIcon icon={faCheck} />
                 </div>
@@ -50,6 +81,31 @@ export default function Settings() {
           ))}            
         </div>
       </div>
+
+      <div className="section d-block">
+        <h2>Font Size</h2>
+        <div className="options-container">          
+          {fontSizes.map((size, index) => (              
+            <button className="btn">
+              {size.title}             
+              { fontSize === index && <span><FontAwesomeIcon icon={faCheck} /> </span> }
+            </button>     
+          ))}            
+        </div>
+      </div>
+
+      <div className="section d-block">
+        <h2>Animation Speed</h2>
+        <div className="options-container">          
+          {animationSpeeds.map((speed, index) => (              
+            <button className="btn">
+              {speed.title}             
+              { animationSpeed === index && <span><FontAwesomeIcon icon={faCheck} /> </span> }
+            </button>     
+          ))}            
+        </div>
+      </div>
+
     </div>
   );
 }
